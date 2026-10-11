@@ -142,11 +142,24 @@ def pl(pts):
     return " ".join("%.1f,%.1f" % p for p in pts)
 
 
+def hike_traces(n):
+    out = []
+    for h in HK:
+        if h["day"] == n:
+            for sg in h["segs"]:
+                if sg["role"] != "more":
+                    out.append(simplify([px(*c) for c in sg["pts"]], 0.8))
+    return out
+
+
 def day_map(n):
     keys = RT[n]["places"] if n in RT else WALK[n]
     pts = []
+    HT = hike_traces(n)
     if n in RT:
         pts += ROUTE_PX[n]
+    for t in HT:
+        pts += t
     pts += [PT[k] for k in keys]
     xs, ys = [p[0] for p in pts], [p[1] for p in pts]
     w, h = max(xs) - min(xs), max(ys) - min(ys)
@@ -162,8 +175,10 @@ def day_map(n):
     out = '<svg class="dmap" viewBox="%.0f %.0f %.0f %.0f" role="img" aria-label="Carte du jour %d">' % (x0, y0, w, h, n)
     out += '<use href="#osm"/>'
     if n in RT:
-        out += '<polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="route %s" vector-effect="non-scaling-stroke"/>' % (pl(ROUTE_PX[n]), pl(ROUTE_PX[n]), part)
-    else:
+        out += '<polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="route car" vector-effect="non-scaling-stroke"/>' % (pl(ROUTE_PX[n]), pl(ROUTE_PX[n]))
+    for t in HT:
+        out += '<polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="ftrace" vector-effect="non-scaling-stroke"/>' % (pl(t), pl(t))
+    if n not in RT and not HT:
         a, b = PT[keys[0]], PT[keys[1]]
         out += '<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" class="walk" vector-effect="non-scaling-stroke"/>' % (a[0], a[1], b[0], b[1])
     seen = set()
@@ -186,7 +201,13 @@ def day_map(n):
             continue
         boxes.append((bx0, bx1, by0, by1))
         out += '<text x="%.1f" y="%.1f" text-anchor="%s" class="plab" style="font-size:%.1fpx">%s</text>' % (tx, y + fs * 0.35, "start" if right else "end", fs, E(lab))
-    return out + '<text x="%.0f" y="%.0f" text-anchor="end" class="attr" style="font-size:%.1fpx">© contributeurs OpenStreetMap</text></svg>' % (x0 + w - fs * 0.4, y0 + h - fs * 0.4, fs * 0.62)
+    svg = out + '<text x="%.0f" y="%.0f" text-anchor="end" class="attr" style="font-size:%.1fpx">© contributeurs OpenStreetMap</text></svg>' % (x0 + w - fs * 0.4, y0 + h - fs * 0.4, fs * 0.62)
+    lg = ""
+    if n in RT:
+        lg += '<span class="lgi"><i class="lk car"></i>voiture</span>'
+    if HT or n not in RT:
+        lg += '<span class="lgi"><i class="lk foot"></i>à pied</span>'
+    return svg + '<p class="lgd">%s</p>' % lg
 
 
 def overview_map():
@@ -198,7 +219,12 @@ def overview_map():
     out += '<use href="#osm"/>'
     for n in sorted(RT):
         part = "r" if n <= 6 else "t"
-        out += '<g class="rg" data-d="%d"><polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="route %s" vector-effect="non-scaling-stroke"/></g>' % (n, pl(ROUTE_PX[n]), pl(ROUTE_PX[n]), part)
+        out += '<g class="rg" data-d="%d"><polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="route car" vector-effect="non-scaling-stroke"/></g>' % (n, pl(ROUTE_PX[n]), pl(ROUTE_PX[n]))
+    for h in HK:
+        for sg in h["segs"]:
+            if sg["role"] != "more":
+                t = simplify([px(*c) for c in sg["pts"]], 0.8)
+                out += '<g class="rg fg" data-d="%d"><polyline points="%s" class="halo" vector-effect="non-scaling-stroke"/><polyline points="%s" class="ftrace" vector-effect="non-scaling-stroke"/></g>' % (h["day"], pl(t), pl(t))
     for L, k in BASES.items():
         x, y = PT[k]
         part = "r" if L in "AB" else "t"
@@ -277,7 +303,7 @@ page = f"""<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
       <p class="dates">sam. 31 juillet → ven. 13 août 2027<br>Lille, Orly, Saint-Denis · 6 voyageurs</p>
       <p class="lead">Six nuits de randonnée dans les hauts, puis six jours de lagon et de découvertes. Environ {TOTAL_KM} km en voiture, tous tracés sur la carte OpenStreetMap ci-contre. Vols relevés le 11 octobre 2026, suivi quotidien des prix, quatre bases à choisir.</p>
     </div>
-    <div class="mast-m">{overview_map()}<div class="dchips" role="group" aria-label="Surligner un jour sur la carte">{chips}</div><p class="cap">Touchez un numéro pour surligner le trajet du jour, orange = randonnées, turquoise = tourisme. Jours 5, 6 et 8 : à pied, sans trajet voiture.</p></div>
+    <div class="mast-m">{overview_map()}<div class="dchips" role="group" aria-label="Surligner un jour sur la carte">{chips}</div><p class="cap">Touchez un numéro pour surligner le trajet du jour, Bleu = trajets en voiture, magenta = randonnées à pied. Les pastilles A à D sont les quatre bases, orange pour la partie randonnées et turquoise pour la partie tourisme. Jours 6 et 8 : à pied, sans trajet voiture.</p></div>
   </div>
   <div class="ruler" aria-label="Les 12 nuits">
     <div class="rseg r" style="flex:3"><b>A</b><span>Plaine des Cafres · 3 nuits</span></div>
