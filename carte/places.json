@@ -1,0 +1,159 @@
+{
+ "RUN": {
+  "q": "Aéroport de La Réunion Roland-Garros",
+  "lat": -20.8902226,
+  "lon": 55.5173184,
+  "name": "Aéroport de la Réunion Roland-Garros, 74, Avenue Roland Garros, Rivière des Plui"
+ },
+ "niagara": {
+  "q": "Cascade Niagara, Sainte-Suzanne, La Réunion",
+  "lat": -20.9205676,
+  "lon": 55.6036437,
+  "name": "Cascade Niagara, La Grande Montée, Sainte-Suzanne, Saint-Denis, La Réunion, 9744"
+ },
+ "palmistes": {
+  "q": "La Plaine-des-Palmistes, La Réunion",
+  "lat": -21.1360638,
+  "lon": 55.6399545,
+  "name": "La Plaine-des-Palmistes, Saint-Benoît, La Réunion, 97431, France"
+ },
+ "murat": {
+  "q": "Bourg-Murat, Le Tampon, La Réunion",
+  "lat": -21.2063188,
+  "lon": 55.5714656,
+  "name": "Bourg Murat, Le Tampon, Saint-Pierre, La Réunion, 97418, France"
+ },
+ "citevolcan": {
+  "q": "Cité du Volcan, Le Tampon",
+  "lat": -21.2029452,
+  "lon": 55.5743258,
+  "name": "Cité du Volcan, Katia et Maurice Kraft, Le Tampon, Saint-Pierre, La Réunion, 974"
+ },
+ "bellecombe": {
+  "q": "Pas de Bellecombe, La Réunion",
+  "lat": -21.222267,
+  "lon": 55.6891666,
+  "name": "Pas de Bellecombe, Sentier du Piton Partage et du Nez Coupé de Sainte-Rose, Sain"
+ },
+ "belouve": {
+  "q": "Gîte de Bélouve, La Réunion",
+  "lat": -21.0609708,
+  "lon": 55.5363193,
+  "name": "Gîte de Bélouve, Route Forestière Numéro 2 de Bébour au Bélouve, Bélouve, Bellev"
+ },
+ "trou_fer": null,
+ "cilaos": {
+  "q": "Cilaos, La Réunion",
+  "lat": -21.1360575,
+  "lon": 55.472515,
+  "name": "Cilaos, Saint-Pierre, La Réunion, 97413, France"
+ },
+ "roche_merv": {
+  "q": "Roche Merveilleuse, Cilaos",
+  "lat": -21.1254433,
+  "lon": 55.482251,
+  "name": "Roche Merveilleuse, Route du Bras Sec, Bras-Sec, Cilaos, Saint-Pierre, La Réunio"
+ },
+ "etangsale": {
+  "q": "Étang-Salé-les-Bains, La Réunion",
+  "lat": -21.263788,
+  "lon": 55.3336356,
+  "name": "Étang-Sale-les-Bains, Avenue Octave Bénard, L'Étang-Salé les Bains, L'Étang-Salé"
+ },
+ "kelonia": {
+  "q": "Kélonia, Saint-Leu, La Réunion",
+  "lat": -21.152558,
+  "lon": 55.2802653,
+  "name": "Kélonia, 46, Rue du Général de Gaulle, La Pointe des Châteaux, Saint-Leu, Saint-"
+ },
+ "stgilles": {
+  "q": "Saint-Gilles-les-Bains, La Réunion",
+  "lat": -21.0548416,
+  "lon": 55.2248423,
+  "name": "Saint-Gilles-les-Bains, Saint-Paul, La Réunion, 97434, France"
+ },
+ "ermitage": {
+  "q": "L'Ermitage-les-Bains, La Réunion",
+  "lat": -21.0743501,
+  "lon": 55.2204098,
+  "name": "Plage de l'Ermitage-les-Bains, Ermitage-les-Bains, Saint-Gilles-les-Bains, Saint"
+ },
+ "maido": {
+  "q": "Maïdo, Saint-Paul, La Réunion",
+  "lat": -21.0706667,
+  "lon": 55.3879533,
+  "name": "Maïdo, Accés PMR, Saint-Paul, La Réunion, 97423, France"
+ },
+ "stpierre": {
+  "q": "Saint-Pierre, La Réunion",
+  "lat": -21.341298,
+  "lon": 55.4776174,
+  "name": "Saint-Pierre, La Réunion, France"
+ },
+ "grandeanse": {
+  "q": "Grande Anse, Petite-Île, La Réunion",
+  "lat": -21.3696894,
+  "lon": 55.5482991,
+  "name": "Grande Anse, La Croisée, Petite-Île, Saint-Pierre, La Réunion, 97429, France"
+ },
+ "capmechant": {
+  "q": "Cap Méchant, Saint-Philippe, La Réunion",
+  "lat": -21.3761941,
+  "lon": 55.7109259,
+  "name": "Cap Méchant, Saint-Philippe, Saint-Pierre, La Réunion, 97442, France"
+ },
+ "anse_casc": {
+  "q": "Anse des Cascades, Sainte-Rose, La Réunion",
+  "lat": -21.1775848,
+  "lon": 55.8267435,
+  "name": "Anse des Cascades, Route Nationale 2, Bois-Blanc, Sainte-Rose, Saint-Benoît, La "
+ },
+ "ndlaves": {
+  "q": "Notre-Dame-des-Laves, Sainte-Rose, La Réunion",
+  "lat": -21.160553,
+  "lon": 55.8243372,
+  "name": "Notre-Dame des Laves, Route Nationale 2, Lotissement Adrien Payet, Piton Sainte-"
+ },
+ "stdenis_jardin": {
+  "q": "Jardin de l'État, Saint-Denis, La Réunion",
+  "lat": -20.8868518,
+  "lon": 55.4510687,
+  "name": "Jardin de l'État, Le Butor, Saint-Jacques, Saint-Denis, La Réunion, France"
+ },
+ "stemarie": {
+  "q": "Sainte-Marie, La Réunion",
+  "lat": -20.8968602,
+  "lon": 55.551734,
+  "name": "Sainte-Marie, Saint-Denis, La Réunion, 97438, France"
+ },
+ "salines": {
+  "q": "Salines-les-Bains, Saint-Paul, La Réunion",
+  "lat": -21.0929756,
+  "lon": 55.2405038,
+  "name": "Rue des Salines, Lotissement Dayot, La Saline les Bains, Saint-Paul, La Réunion,"
+ },
+ "stleu": {
+  "q": "Saint-Leu, La Réunion",
+  "lat": -21.1677694,
+  "lon": 55.2881932,
+  "name": "Saint-Leu, Saint-Paul, La Réunion, France"
+ },
+ "stphilippe": {
+  "q": "Saint-Philippe, La Réunion",
+  "lat": -21.359598,
+  "lon": 55.7676911,
+  "name": "Saint-Philippe, Saint-Pierre, La Réunion, 97442, France"
+ },
+ "taibit": {
+  "q": "Col du Taïbit, La Réunion",
+  "lat": -21.1126331,
+  "lon": 55.4327816,
+  "name": "Col du Taïbit, Cilaos, Saint-Pierre, La Réunion, 97413, France"
+ },
+ "ilet_cordes": {
+  "q": "Îlet à Cordes, Cilaos, La Réunion",
+  "lat": -21.1480228,
+  "lon": 55.4371085,
+  "name": "Îlet à Cordes, Cilaos, Saint-Pierre, La Réunion, 97413, France"
+ }
+}

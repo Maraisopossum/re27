@@ -1,0 +1,6 @@
+.impeccable/review/
+.impeccable/mocks/
+carte/tile_*.png
+carte/base_z12.png
+__pycache__/
+.impeccable/questions/

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-11T00:00:00Z",
+  "title": "Design System: Roadbook Réunion",
+  "extensions": {
+    "colorMeta": {
+      "yellow": {"role": "primary", "displayName": "Jaune de route", "canonical": "#ffd23f", "tonalRamp": ["#fff6d1", "#ffec9e", "#ffe071", "#ffd23f", "#e6b92d", "#bf961d", "#8f6f12", "#5c4709"]},
+      "lava": {"role": "secondary", "displayName": "Lava", "canonical": "#c43d08", "tonalRamp": ["#fbe3d7", "#f6c1a6", "#ef9a6c", "#e47337", "#c43d08", "#9c3006", "#722304", "#491603"]},
+      "lagon": {"role": "secondary", "displayName": "Lagon", "canonical": "#00707c", "tonalRamp": ["#d3f1f4", "#a2e3ea", "#61cfda", "#1fb4c3", "#00707c", "#005a64", "#00444b", "#002d32"]},
+      "paper": {"role": "neutral", "displayName": "Papier froid", "canonical": "#f1f4f5", "tonalRamp": ["#ffffff", "#f1f4f5", "#e3e8ea", "#c9d2d6", "#a3b3b9", "#46545b", "#1c262b", "#0f1417"]},
+      "ink": {"role": "neutral", "displayName": "Encre", "canonical": "#0f1417", "tonalRamp": ["#46545b", "#2c383d", "#1c262b", "#0f1417"]}
+    },
+    "typographyMeta": {
+      "display": {"displayName": "Barlow Condensed capitales", "purpose": "Titre de couverture"},
+      "headline": {"displayName": "Barlow Condensed capitales", "purpose": "Titres de section sous règle de 6 px"},
+      "title": {"displayName": "Barlow Condensed", "purpose": "Titres de jour et de logement"},
+      "body": {"displayName": "Barlow", "purpose": "Texte courant, mesure 44 rem"},
+      "label": {"displayName": "Barlow Condensed capitales espacées", "purpose": "Dates, en-têtes de tableaux, filtres"}
+    },
+    "shadows": [],
+    "motion": [{"name": "route-highlight", "value": "opacity .2s", "purpose": "Surligne le trajet d'un jour sur la carte de couverture"}],
+    "breakpoints": [{"name": "stack-cover", "value": "860px"}, {"name": "phone", "value": "560px"}]
+  },
+  "components": [
+    {
+      "name": "Plaque de jour",
+      "kind": "custom",
+      "refersTo": "day-number-hike",
+      "description": "Plaque numérotée qui ouvre une bande de jour, lava pour la randonnée, lagon pour le tourisme.",
+      "html": "<div class=\"ds-day\"><span class=\"ds-dn\">2</span><span class=\"ds-dt\">Piton de la Fournaise et Formica Leo</span><span class=\"ds-dr\">LUN 2/08<br><b>49 km · 1 h 37</b></span></div>",
+      "css": ".ds-day{display:grid;grid-template-columns:3.6rem 1fr auto;border:2px solid #0f1417;background:#fff;font-family:'Barlow Condensed',sans-serif}.ds-dn{display:grid;place-items:center;background:#c43d08;color:#fff;font-weight:700;font-size:2.2rem;min-height:3.6rem}.ds-dt{padding:.65rem .8rem;font-weight:700;font-size:1.4rem;line-height:1.1;align-self:center}.ds-dr{padding:0 1rem;text-align:right;align-self:center;font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:.07em;color:#46545b}.ds-dr b{font-size:1.15rem;color:#0f1417}"
+    },
+    {
+      "name": "Puce de jour",
+      "kind": "chip",
+      "refersTo": "day-chip",
+      "description": "Carré de 2.5 rem avec base colorée, surligne un trajet.",
+      "html": "<button class=\"ds-chip\">7</button>",
+      "css": ".ds-chip{font:700 1.05rem 'Barlow Condensed',sans-serif;width:2.5rem;height:2.5rem;border:2px solid #0f1417;border-bottom:6px solid #00707c;background:#fff;color:#0f1417;cursor:pointer;padding:0}.ds-chip:hover{background:#0f1417;color:#fff}.ds-chip:focus-visible{outline:3px solid #ffd23f;outline-offset:2px;box-shadow:0 0 0 5px #0f1417}.ds-chip:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Encadré",
+      "kind": "custom",
+      "refersTo": "callout",
+      "description": "Conseil ou mise en garde sur fond jaune.",
+      "html": "<p class=\"ds-callout\"><strong>À noter.</strong> Le 31 juillet est le jour le plus cher de la semaine.</p>",
+      "css": ".ds-callout{background:#ffd23f;color:#0f1417;border:2px solid #0f1417;padding:.7rem 1rem;margin:0;font-family:'Barlow',sans-serif;line-height:1.55}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le carnet de route",
+    "overview": "Une page lue comme un roadbook de rallye-raid : couverture jaune avec la vraie carte OSM, puis des bandes de jour où chaque étape porte son kilométrage réel.",
+    "keyCharacteristics": ["Jaune signalisation, encre noire, papier blanc froid", "Barlow Condensed pour tous les chiffres", "Règles noires de 6 px et filets de 2 px, aucune ombre", "Lava = randonnée, lagon = tourisme"],
+    "rules": [
+      {"name": "The Two-Paints Rule", "body": "Lava et lagon n'apparaissent que pour dire randonnée ou tourisme.", "section": "colors"},
+      {"name": "The No-Cream Rule", "body": "Le papier est blanc froid, jamais crème ni sépia.", "section": "colors"},
+      {"name": "The Odometer Rule", "body": "Tout nombre qui se compare utilise le condensé gras en chiffres tabulaires.", "section": "typography"}
+    ],
+    "dos": ["Montrer les km et durées réels avec leur source", "Marquer les estimations comme telles", "Garder la carte lisible au soleil"],
+    "donts": ["Pas d'arrondis, d'ombres ni de dégradés", "Pas d'étiquette au-dessus d'un titre", "Pas de fourchette de logement présentée comme un tarif"]
+  }
+}
