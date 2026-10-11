@@ -98,10 +98,11 @@ tr = max(mains, key=length)
 if hav(tr[0], (55.6845, -21.2251)) > hav(tr[-1], (55.6845, -21.2251)): tr = tr[::-1]
 FL = (55.69217, -21.22393)
 k = nearest(tr, FL)
-H.append(dict(id="formica", day=2, name="Formica Leo (sentier du cratère Dolomieu)", kind="osm", segs=[dict(role="main", pts=tr[:k + 1]), dict(role="more", pts=tr[k:])],
-              main=tr[:k + 1], pins=[("Parking du Pas de Bellecombe", tr[0]), ("Cratère Formica Leo", tr[k])],
-              official="Sentier officiel jusqu'au cratère Dolomieu : %s km (ONF)" % str(d.get("official_length", 6200) / 1000).replace(".", ","),
-              src="Komoot et avis voyageurs : 1 h 40 à 2 h, environ 170 m de dénivelé", level="Facile à moyen, plus de 400 marches au retour",
+H.append(dict(id="dolomieu", day=2, name="Sommet du Piton de la Fournaise : cratère Dolomieu", kind="osm", segs=[dict(role="main", pts=tr)],
+              main=tr, pins=[("Parking du Pas de Bellecombe", tr[0]), ("Formica Leo", tr[k]), ("Bord du cratère Dolomieu", tr[-1])],
+              official="Sentier officiel du cratère Dolomieu : %s km à l'aller (ONF), voie normale de l'ascension" % str(d.get("official_length", 6200) / 1000).replace(".", ","),
+              src="Randopitons et ONF : environ 5 h 30 à 6 h 30 aller-retour pour un marcheur adulte, plus avec un enfant porté",
+              level="Exigeant : 12 km aller-retour à plus de 2 200 m, vent et froid, sol de lave",
               links=[("Fiche Randopitons", d.get("url")), ("Relation OSM", "https://www.openstreetmap.org/relation/18113433")]))
 # 2. Trou de Fer : sentier du Trou de Fer (relation OSM)
 d, mains = relation(6656170)

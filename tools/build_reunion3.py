@@ -55,6 +55,18 @@ for d in D:
         d["steps"] = [(t, s.replace(a, b)) for t, s in d["steps"]]
         d["note"] = d["note"].replace(a, b)
 D[10]["km"] = "169 km · 3 h 05"
+D[1].update(t="Tout en haut du Piton de la Fournaise : cratère Dolomieu", img="fournaise", steps=[
+    ("06:00", "Petit-déjeuner, sacs prêts la veille : 2 à 3 litres d'eau par personne, pique-nique, polaires, coupe-vent, bonnets, gants, lunettes, crème solaire."),
+    ("06:30", "Départ de Bourg-Murat par la route du Volcan : 25 km à travers la Plaine des Sables, environ 50 min. Arriver tôt, avant les nuages."),
+    ("07:30", "Parking du Pas de Bellecombe, 2 311 m. Il fait 0 à 5 °C et il y a du vent. La petite s'installe dans le porte-bébé rigide."),
+    ("07:45", "Escalier de Bellecombe (plus de 400 marches) et descente dans l'Enclos Fouqué."),
+    ("08:15", "Formica Leo à 1,3 km, premier cratère : pause, c'est ici que l'on décide de poursuivre."),
+    ("08:30", "Traversée de la coulée de lave sur le sentier du cratère Dolomieu : 6,1 km à l'aller, environ 310 m de montée et 190 m de descente, 2 h 15 à 2 h 45 avec la petite."),
+    ("11:00", "Bord du cratère Dolomieu, vers 2 500 m : pique-nique au bord, 30 à 45 min, vue sur le cratère et son effondrement."),
+    ("11:45", "Demi-tour par le même sentier : même distance, même temps."),
+    ("14:30", "Retour au parking après la remontée des 400 marches. Total environ 12 km, 5 h 30 à 6 h 30 de marche."),
+    ("15:30", "Retour à Bourg-Murat, douche chaude, dîner tôt devant la cheminée.")],
+    note="Accès à confirmer la veille auprès de l'ONF et de l'observatoire OVPF : depuis mai 2026 seuls Formica Leo, le sentier Rivals vers le cratère Caubet et le sentier d'accès au site d'observation du Dolomieu étaient ouverts, et l'enclos ferme en cas d'éruption ou d'éboulement. Le point le plus haut atteint peut donc être le site d'observation plutôt que le bord. Plan B si fermé : Formica Leo (2 h) et la Cité du Volcan. Toute la famille ensemble, sans groupes séparés : avec la petite en porte-bébé, relais toutes les 30 min, demi-tour sans discussion dès que le brouillard ou le vent monte. Le lendemain, le Trou de Fer (9 km) arrive sur des jambes fatiguées : décaler d'une journée si besoin.")
 D[4].update(t="Cascade du Bras Rouge en famille, thermes de Cilaos", steps=[
     ("08:30", "Départ à pied de Cilaos vers la cascade du Bras Rouge : environ 3,8 km par le sentier, 2 h 20 aller-retour, 300 m de descente à l'aller et la même remontée au retour."),
     ("11:00", "Pique-nique devant la cascade, on se mouille les pieds."),
