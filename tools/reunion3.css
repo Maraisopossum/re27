@@ -117,3 +117,21 @@ html{scrollbar-color:var(--ink) var(--paper)}
 @media (max-width:860px){.mast-in{grid-template-columns:1fr}.omap{max-height:none}.db{grid-template-columns:1fr}}
 @media (max-width:560px){h2{font-size:2rem}.day summary{grid-template-columns:3rem minmax(0,1fr)}.dr{grid-column:2;align-items:flex-start;justify-content:flex-start;text-align:left;flex-direction:row;gap:.8rem;padding:0 .8rem .55rem}.dn{grid-row:1/3;font-size:1.9rem}.opt{grid-template-columns:1fr}.op{align-items:flex-start;text-align:left}.steps li{grid-template-columns:3rem 1fr}.rseg span{font-size:.7rem}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.hike{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1.4rem;margin:1.6rem 0;border-top:6px solid var(--lava);padding-top:.8rem}
+.hm{min-width:0}
+.hmap{display:block;width:100%;height:auto;background:#aad3df;border:2px solid var(--rule)}
+.hmap .hline{fill:none;stroke:#c43d08;stroke-width:5;stroke-linejoin:round;stroke-linecap:round}
+.hmap .hmore{fill:none;stroke:#c43d08;stroke-width:3;stroke-dasharray:2 7;stroke-linecap:round;opacity:.8}
+.hmap .halo{fill:none;stroke:#fff;stroke-width:9;stroke-linejoin:round;stroke-linecap:round}
+.hmap .hpin{stroke:#fff;stroke-width:3}.hmap .hpin.a{fill:#0f1417}.hmap .hpin.b{fill:#c43d08}
+.hmap .plab{fill:#0f1417;font-family:var(--ff-b);font-weight:600;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.hb{min-width:0}.hb h3{margin:0 0 .2rem}
+.hs{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6rem 0;background:var(--panel);border:2px solid var(--rule)}
+.hs th{text-align:left;font:600 .85rem var(--ff-d);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:.35rem .5rem;border-bottom:1px solid var(--hair)}
+.hs td{font:700 1.1rem var(--ff-d);padding:.35rem .5rem;border-bottom:1px solid var(--hair);white-space:nowrap}
+.hprof{display:block;width:100%;max-width:26rem;height:auto}
+.hprof .grid{stroke:var(--hair);stroke-width:1}.hprof .axis{fill:var(--muted);font:10px var(--ff-b)}.hprof .pline{fill:none;stroke:var(--lava);stroke-width:2.5;stroke-linejoin:round}
+.hn{font-size:.9rem;color:var(--muted)}
+.hl{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font:600 .95rem var(--ff-d);text-transform:uppercase;letter-spacing:.04em}
+@media (max-width:860px){.hike{grid-template-columns:1fr}}

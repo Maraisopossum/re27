@@ -1,6 +1,6 @@
 ---
 name: suivi-prix-reunion
-description: Relève chaque jour le prix des vols French bee Paris-Orly ↔ La Réunion pour le voyage de la famille (aller sam. 31 juillet 2027 au soir, retour ven. 13 août 2027), enregistre l'historique et dit si c'est le moment le moins cher pour acheter. À utiliser pour "vérifie les prix du vol Réunion", "suivi prix Réunion", "est-ce le bon moment pour réserver", ou quand une tâche planifiée quotidienne l'invoque.
+description: Relève chaque jour le prix des logements (Booking) et des vols French bee Paris-Orly ↔ La Réunion pour le voyage de la famille (aller sam. 31 juillet 2027 au soir, retour ven. 13 août 2027), enregistre l'historique et dit si c'est le moment le moins cher pour acheter. À utiliser pour "vérifie les prix du vol Réunion", "suivi prix Réunion", "est-ce le bon moment pour réserver", ou quand une tâche planifiée quotidienne l'invoque.
 ---
 
 # Suivi des prix du vol Réunion (French bee)
@@ -38,3 +38,27 @@ python C:\Users\benoi\.claude\skills\suivi-prix-reunion\log_price.py --fare Smar
 Réponse à l'utilisateur, en français, courte : prix du jour pour les 3 tarifs, écart avec la veille et avec le plus bas connu, dates voisines moins chères (ex. aller 28/07 ou 1/08), recommandation (acheter / attendre). Relevé initial du 11/10/2026 : Smart 6 821,60 €, Light+ 6 361,60 €, Flex 8 272,60 €.
 
 Si un sélecteur a changé, repartir de `read_page` / `find` : le principe reste calendrier d'abord, moteur de réservation ensuite.
+
+
+## Étape 4 : logements (Booking.com, mêmes consignes de consultation seule)
+
+Quatre recherches, 5 adultes + 1 enfant de 2 ans (`group_adults=5&group_children=1&age=2`), prix total du séjour taxes comprises :
+
+| Base | Destination (`ss=`) | Dates | Filtre |
+|---|---|---|---|
+| A | La Plaine-des-Cafres | 2027-08-01 → 08-04 | `nflt=ht_id%3D220`, `no_rooms=1` |
+| B | Cilaos | 2027-08-04 → 08-07 | idem |
+| C | Saint-Gilles-les-Bains | 2027-08-07 → 08-11 | idem |
+| D | Sainte-Marie, La Réunion | 2027-08-11 → 08-13 | `no_rooms=2`, sans filtre |
+
+URL : `https://www.booking.com/searchresults.fr.html?ss=<ville>&checkin=<d>&checkout=<d>&group_adults=5&group_children=1&age=2&no_rooms=1&nflt=ht_id%3D220`. Attendre 8 s, faire défiler la page, puis `javascript_tool` : pour chaque `[data-testid="property-card"]` lire le titre (`[data-testid="title"]`), le lien (`a[data-testid="title-link"]`, garder le dernier segment sans `.fr.html` comme `slug`), le prix (`[data-testid="price-and-discounted-price"]`), la note (`[data-testid="review-score"]`), chambres et m² dans le texte de la carte.
+
+Ne suivre que les logements déjà listés dans `suivi\logements.csv` (comparaison par `slug`), plus tout nouveau 3 chambres noté 9 et plus. Envoyer le JSON à `python log_logements.py` (voir son docstring) : il signale NOUVEAU et VARIATION. Un logement qui disparaît de la liste n'est plus disponible : le dire.
+
+### Airbnb (même principe)
+
+URL : `https://www.airbnb.fr/s/<Ville>--La-R%C3%A9union/homes?checkin=<d>&checkout=<d>&adults=5&children=1&min_bedrooms=3`. Au premier chargement, choisir « Uniquement les cookies nécessaires », puis recharger la page : les annonces n'apparaissent qu'après ce choix. Attendre 12 s, faire défiler, lire chaque `[data-testid="card-container"]` : identifiant = dernier segment du lien `/rooms/<id>`, prix = « N € au total » (frais compris), note sur 5 et nombre d'avis, chambres. Suivre les annonces déjà listées dans `logements.csv` (source `airbnb`, `slug` = identifiant), mêmes règles que Booking, `note_sur` = 5.
+
+## Étape 5 : republier
+
+Si un prix a changé : `python C:\Users\benoi\Documents\Voyages\_outils\build_reunion3.py` régénère la page, puis republier l'Artifact `https://claude.ai/artifact/Mou9QJvA8Fpnb3UPQe9SCa` avec le même fichier.

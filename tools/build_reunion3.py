@@ -55,6 +55,13 @@ for d in D:
         d["steps"] = [(t, s.replace(a, b)) for t, s in d["steps"]]
         d["note"] = d["note"].replace(a, b)
 D[10]["km"] = "169 km · 3 h 05"
+D[4].update(t="Cascade du Bras Rouge en famille, thermes de Cilaos", steps=[
+    ("08:30", "Départ à pied de Cilaos vers la cascade du Bras Rouge : environ 3,8 km par le sentier, 2 h 20 aller-retour, 300 m de descente à l'aller et la même remontée au retour."),
+    ("11:00", "Pique-nique devant la cascade, on se mouille les pieds."),
+    ("12:30", "Remontée vers Cilaos, la petite en porte-bébé, relais entre les adultes."),
+    ("14:30", "Thermes de Cilaos (établissement Irénée Accot) pour récupérer."),
+    ("17:00", "Village de Cilaos : broderies, lentilles et vin de Cilaos pour les courses du soir.")],
+    note="Toute la famille marche ensemble, sans groupes séparés. Le col du Taïbit (830 m de dénivelé, environ 5 h) est écarté pour rester à six. La boucle des cascades fait 12 km : à garder pour un autre voyage.")
 TOTAL_KM = round(sum(v["km"] for v in RT.values()))
 
 
@@ -67,15 +74,18 @@ for Lb in LODG:
     opts = []
     for r in rr:
         tot, n = float(r["total_eur"]), int(r["nuits"])
+        ab = r["source"] == "airbnb"
         facts = []
         if r["chambres"]: facts.append(r["chambres"] + " chambres")
         if r["m2"]: facts.append(r["m2"] + " m²")
-        if r["note"]: facts.append("note " + r["note"].replace(".", ",") + "/10")
+        if r["note"]:
+            facts.append(("%s/5, %s avis" % (r["note"].replace(".", ","), r["avis"])) if ab else ("note %s/10" % r["note"].replace(".", ",")))
         if r["remarque"]: facts.append(r["remarque"])
-        tag = "Notre choix" if r["slug"] == PICK[Lb["id"]] else ("Mieux noté" if r["note"] in ("10", "9.9", "9.7", "9.6") else "")
-        opts.append((r["nom"], ", ".join(facts) + ".", "https://www.booking.com/hotel/re/%s.fr.html" % r["slug"], "%s · %d €/nuit" % (money(tot), round(tot / n)), tag))
+        url = ("https://www.airbnb.fr/rooms/%s" % r["slug"]) if ab else ("https://www.booking.com/hotel/re/%s.fr.html" % r["slug"])
+        tag = "Notre choix" if (r["slug"] == PICK[Lb["id"]] and not ab) else ("Airbnb" if ab else "Booking")
+        opts.append((r["nom"], ", ".join(facts) + ".", url, "%s · %d €/nuit" % (money(tot), round(tot / n)), tag))
     Lb["opts"] = opts
-    Lb["pick"] = [float(r["total_eur"]) for r in rr if r["slug"] == PICK[Lb["id"]]][0]
+    Lb["pick"] = [float(r["total_eur"]) for r in rr if r["slug"] == PICK[Lb["id"]] and r["source"] == "booking"][0]
 BUD[4] = ("Plaine des Cafres · 3 nuits (La Kaz à Léna)", int(LODG[0]["pick"]), "relevé Booking %s, 3 nuits 1 → 4 août" % LDATE)
 BUD[5] = ("Cilaos · 3 nuits (Au Coeur des hauts)", int(LODG[1]["pick"]), "relevé Booking %s, 3 nuits 4 → 7 août" % LDATE)
 BUD[6] = ("Saint-Gilles · 4 nuits (La Kaz de Léa & Dérick)", int(LODG[2]["pick"]), "relevé Booking %s, 4 nuits 7 → 11 août" % LDATE)
@@ -203,6 +213,7 @@ GL = {"start": '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="
       "via": '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3 17 10 10 17 3 10Z" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>',
       "end": '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 17V3m0 1h10l-3 3.5L15 11H5" fill="currentColor" stroke="currentColor" stroke-width="2"/></svg>'}
 
+exec(open(os.path.join(HERE, "hikes_section.py"), encoding="utf-8").read())
 css = open(os.path.join(HERE, "reunion3.css"), encoding="utf-8").read()
 js = open(os.path.join(HERE, "reunion3.js"), encoding="utf-8").read()
 
@@ -263,7 +274,7 @@ page = f"""<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
   </div>
 </header>
 <main class="wrap">
-<nav class="nav" aria-label="Sections"><a href="#vols">Vols</a><a href="#suivi">Prix</a><a href="#logements">Logements</a><a href="#jours">Jour par jour</a><a href="#budget">Budget</a><a href="#todo">À faire</a></nav>
+<nav class="nav" aria-label="Sections"><a href="#vols">Vols</a><a href="#suivi">Prix</a><a href="#logements">Logements</a><a href="#randos">Randonnées</a><a href="#jours">Jour par jour</a><a href="#budget">Budget</a><a href="#todo">À faire</a></nav>
 
 <section id="vols">
   <h2>Les vols</h2>
@@ -288,8 +299,15 @@ page = f"""<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 
 <section id="logements">
   <h2>Où dormir</h2>
-  <p class="lead sm">Quatre bases, du plus frais au plus chaud. Prix <b>relevés sur Booking.com le {LDATE}</b> pour les nuits exactes de chaque base, 5 adultes + 1 enfant de 2 ans, taxes et frais compris, au total du séjour. Rien n'est réservé : les disponibilités et les prix changent, le suivi les relèvera de nouveau.</p>
+  <p class="lead sm">Quatre bases, du plus frais au plus chaud. Prix <b>relevés sur Booking.com et Airbnb le {LDATE}</b> pour les nuits exactes de chaque base, 5 adultes + 1 enfant de 2 ans, taxes et frais compris, au total du séjour. Rien n'est réservé : les disponibilités et les prix changent, le suivi les relèvera de nouveau.</p>
   {lod_html}
+</section>
+
+<section id="randos">
+  <h2>Randonnées</h2>
+  <p class="lead sm">Six marcheurs ensemble, la petite en porte-bébé. Les tracés viennent d'OpenStreetMap : relations de sentiers balisés quand elles existent (cratère Dolomieu, Trou de Fer, Roche Merveilleuse), sinon un tracé calculé sur les sentiers OSM (cascade du Bras Rouge). Les altitudes sont des mesures satellite SRTM, précision de l'ordre de la dizaine de mètres. À comparer au balisage et à la fiche Randopitons avant de partir.</p>
+  {hike_html}
+  <p class="callout">Pas de tracé fiable dans OpenStreetMap pour La Chapelle et l'Îlet à Cordes (jour 6) : le calcul donnait 11,8 km au lieu de 5 environ. À relever sur Randopitons avant de partir. Le col du Taïbit n'est pas relié au sentier de Cilaos dans OSM et n'est plus au programme.</p>
 </section>
 
 <section id="jours">
