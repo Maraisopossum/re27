@@ -1,5 +1,8 @@
 # Section « Randonnées » : exécutée par build_reunion3.py (exec) après le chargement des données.
 HK = json.load(open(CARTE + r"\hikes.json", encoding="utf-8"))
+for _h in HK:
+    _h["day"] = {"dolomieu": 2, "troudefer": 3, "grandbassin": 4, "brasrouge": 5, "roche": 5}[_h["id"]]
+HK.sort(key=lambda h: (h["day"], h["id"]))
 
 
 def hpx(t, lon, lat):

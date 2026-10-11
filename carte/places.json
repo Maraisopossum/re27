@@ -155,5 +155,17 @@
   "lat": -21.1480228,
   "lon": 55.4371085,
   "name": "Îlet à Cordes, Cilaos, Saint-Pierre, La Réunion, 97413, France"
+ },
+ "boiscourt": {
+  "q": "Belvédère de Bois-Court",
+  "lat": -21.19173,
+  "lon": 55.53749,
+  "name": "Belvédère de Bois-Court"
+ },
+ "tunnels": {
+  "q": "Sainte-Rose, départ des tunnels de lave (point à confirmer)",
+  "lat": -21.160553,
+  "lon": 55.8243372,
+  "name": "Sainte-Rose"
  }
 }

@@ -67,6 +67,7 @@ D[1].update(t="Tout en haut du Piton de la Fournaise : cratère Dolomieu", img="
     ("14:30", "Retour au parking après la remontée des 400 marches. Total environ 12 km, 5 h 30 à 6 h 30 de marche."),
     ("15:30", "Retour à Bourg-Murat, douche chaude, dîner tôt devant la cheminée.")],
     note="Accès à confirmer la veille auprès de l'ONF et de l'observatoire OVPF : depuis mai 2026 seuls Formica Leo, le sentier Rivals vers le cratère Caubet et le sentier d'accès au site d'observation du Dolomieu étaient ouverts, et l'enclos ferme en cas d'éruption ou d'éboulement. Le point le plus haut atteint peut donc être le site d'observation plutôt que le bord. Plan B si fermé : Formica Leo (2 h) et la Cité du Volcan. Toute la famille ensemble, sans groupes séparés : avec la petite en porte-bébé, relais toutes les 30 min, demi-tour sans discussion dès que le brouillard ou le vent monte. Le lendemain, le Trou de Fer (9 km) arrive sur des jambes fatiguées : décaler d'une journée si besoin.")
+exec(open(os.path.join(HERE, "days_overrides.py"), encoding="utf-8").read())
 D[4].update(t="Cascade du Bras Rouge en famille, thermes de Cilaos", steps=[
     ("08:30", "Départ à pied de Cilaos vers la cascade du Bras Rouge : environ 3,8 km par le sentier, 2 h 20 aller-retour, 300 m de descente à l'aller et la même remontée au retour."),
     ("11:00", "Pique-nique devant la cascade, on se mouille les pieds."),
@@ -317,7 +318,7 @@ page = f"""<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 
 <section id="randos">
   <h2>Randonnées</h2>
-  <p class="lead sm">Six marcheurs ensemble, la petite en porte-bébé. Les tracés viennent d'OpenStreetMap : relations de sentiers balisés quand elles existent (cratère Dolomieu, Trou de Fer, Roche Merveilleuse), sinon un tracé calculé sur les sentiers OSM (cascade du Bras Rouge). Les altitudes sont des mesures satellite SRTM, précision de l'ordre de la dizaine de mètres. À comparer au balisage et à la fiche Randopitons avant de partir.</p>
+  <p class="lead sm">Six marcheurs ensemble, la petite en porte-bébé. Les tracés viennent d'OpenStreetMap : relations de sentiers balisés quand elles existent (cratère Dolomieu, Trou de Fer, Grand Bassin, Roche Merveilleuse), sinon un tracé calculé sur les sentiers OSM (cascade du Bras Rouge). Les altitudes sont des mesures satellite SRTM, précision de l'ordre de la dizaine de mètres. À comparer au balisage et à la fiche Randopitons avant de partir.</p>
   {hike_html}
   <p class="callout">Pas de tracé fiable dans OpenStreetMap pour La Chapelle et l'Îlet à Cordes (jour 6) : le calcul donnait 11,8 km au lieu de 5 environ. À relever sur Randopitons avant de partir. Le col du Taïbit n'est pas relié au sentier de Cilaos dans OSM et n'est plus au programme.</p>
 </section>
@@ -343,7 +344,7 @@ page = f"""<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
     <li><b>Volcan :</b> consulter l'arrêté préfectoral et les infos ONF la veille du 2 août.</li>
     <li><b>Matériel :</b> porte-bébé de randonnée, polaires et bonnets pour 2 000 m, chaussures de marche, masque et tuba.</li>
     <li><b>Mer :</b> baignade uniquement dans les zones autorisées du lagon.</li>
-    <li><b>Réservations :</b> logements A à D, bateau baleines, parapente, retrait de la voiture.</li>
+    <li><b>Réservations :</b> logements A à D, bateau baleines, tunnels de lave (dès 7 ans, la petite ne peut pas y aller), retrait de la voiture.</li>
   </ul>
   <details id="cred"><summary>Crédits : carte et photos</summary><ul class="cred"><li>Fond de carte © contributeurs <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (licence ODbL), tuiles standard assemblées au niveau de zoom 12.</li><li>Itinéraires routiers calculés avec OSRM sur les données OpenStreetMap, lieux localisés avec Nominatim. Durées indicatives, la route de montagne est plus lente.</li>{credits}</ul></details>
 </section>

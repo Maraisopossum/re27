@@ -130,6 +130,14 @@ H.append(dict(id="brasrouge", day=5, name="Cascade du Bras Rouge, depuis Cilaos"
               official="Tracé calculé sur les sentiers OSM, à comparer au balisage",
               src="Decathlon Outdoor : 2 h 20 aller-retour", level="Facile à moyen", links=[]))
 
+# 5. Grand Bassin depuis le belvédère de Bois Court (routeur piéton)
+gb = [tuple(p) for p in json.load(open(CARTE + r"\gb_path.json"))]  # plus court chemin sur le réseau de sentiers OSM (Overpass), voir grand_bassin_path.py
+H.append(dict(id="grandbassin", day=4, name="Grand Bassin depuis Bois Court", kind="osmpath", segs=[dict(role="main", pts=gb)], main=gb,
+              pins=[("Belvédère de Bois Court", gb[0]), ("Hameau de Grand Bassin", gb[-1])],
+              official="Sentier Grand Bassin (OSM), plus court chemin sur le réseau de sentiers, à comparer au balisage",
+              src="Visorando et récits : 4 h 30 à 6 h aller-retour jusqu'au hameau, environ 700 m de dénivelé réel ; avec la cascade du Voile de la Mariée de Grand Bassin, environ 5 h 20", level="Difficile : descente raide à l'aller, remontée continue au retour",
+              links=[("Fiche Visorando", "https://www.visorando.com/randonnee-grand-bassin-et-le-voile-de-la-mariee/")]))
+
 allres = []
 Z = 14
 def tx(lon): return (lon + 180) / 360 * 2 ** Z
