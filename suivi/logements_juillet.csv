@@ -1,0 +1,42 @@
+date,source,base,nuits,nom,slug,chambres,m2,note,note_sur,avis,total_eur,remarque
+2026-10-12,booking,A,3,La Kaz à Léna La Plaine des Cafres,la-kaz-a-lena-la-plaine-des-cafres,3,90,9.6,10,,444,
+2026-10-12,booking,A,3,L'Escale Familiale des Hauts,escale-familiale-des-hauts-le-tampon,3,86,10,10,,452,Le Tampon
+2026-10-12,booking,A,3,Location Saisonnière Les Caféiers,location-saisonniere-les-cafeiers,3,70,9.1,10,,428,
+2026-10-12,booking,A,3,"Kaz Pilea, villa jardin calme",kaz-pilea-villa-jardin-calme-10-personnes,3,92,8.3,10,,461,
+2026-10-12,booking,A,3,La Casa Del Ju Lya 4 étoiles,la-casa-del-ju-lya-4-etoiles-le-tampon,3,110,9.1,10,,721,Le Tampon
+2026-10-12,booking,A,3,Domaine du Kilomètre Zéro & Spa,domaine-du-kilometre-zero-amp-spa,3,120,9.1,10,,851,spa
+2026-10-12,booking,B,3,Au Coeur des hauts Cilaos,au-coeur-des-hauts-cilaos,3,108,9.3,10,,688,3 salles de bains
+2026-10-12,booking,B,3,Le relief,le-relief,6,150,10,10,,756,"6 chambres, 2 salles de bains"
+2026-10-12,booking,B,3,Le Zarlor à Cilaos,le-zarlor-a-cilaos,4,120,8.4,10,,375,
+2026-10-12,booking,B,3,Kaz la Mare,kaz-la-mare,3,120,,10,,415,
+2026-10-12,booking,B,3,L'écho de la montagne,echo-de-la-montagne,3,100,9.0,10,,649,
+2026-10-12,booking,B,3,Villa L'attrape rêves 1,l-39-attrape-reves,4,95,9.2,10,,802,
+2026-10-12,booking,B,3,La villa Madelon,la-villa-madelon,4,130,9.2,10,,783,
+2026-10-12,booking,C,5,La Kaz de Léa & Dérick,la-kaz-de-lea-derick,3,104,10,10,,1249,jardin tropical
+2026-10-12,booking,C,5,Villa récente avec piscine à 3 min du lagon,villa-recente-avec-piscine-a-3mn-du-lagon-saint-paul,4,135,10,10,,906,"piscine, Saint-Paul"
+2026-10-12,booking,C,5,kaz cocoloba,kaz-cocoloba,3,130,9.5,10,,1405,
+2026-10-12,booking,C,5,l'oasis des roches,oasis-des-roches,3,70,9.5,10,,1398,
+2026-10-12,booking,C,5,"Maison Lantanas, piscine privée",maison-lantanas,3,90,9.0,10,,1687,"piscine privée, climatisée"
+2026-10-12,booking,D,2,La Maison des Oeillets,les-chambres-flamboyant-location-saisonniere-sainte-marie,,,8.3,10,,412,près de l'aéroport
+2026-10-12,booking,D,2,Villa Roche Dor,villa-roche-dor,,,9.1,10,,521,
+2026-10-12,booking,D,2,Tulip Inn Sainte-Clotilde,tulip-inn-sainte-clotilde,,,8.0,10,,479,navette gratuite vers l'aéroport
+2026-10-12,booking,D,2,B&B Hôtel La Réunion Aéroport,b-amp-b-la-reunion-aeroport,,,8.4,10,,567,2 chambres
+2026-10-12,airbnb,A,3,Le sept,16732910,3,,4.78,5,138,530,
+2026-10-12,airbnb,A,3,"Case au pied du volcan, confortable, bien équipée",45013784,3,,4.92,5,113,581,
+2026-10-12,airbnb,A,3,Le Placide,45647926,3,,4.83,5,126,384,Le Tampon
+2026-10-12,airbnb,A,3,l'hortensia bleu,891928954973851682,3,,4.88,5,115,322,Le Tampon
+2026-10-12,airbnb,A,3,Le refuge d'Aiden,32204472,3,,4.92,5,87,447,La Plaine-des-Palmistes
+2026-10-12,airbnb,A,3,"Kaz Poinsetias, maison de charme avec Jacuzzi",664914972054204790,3,,4.82,5,28,425,jacuzzi
+2026-10-12,airbnb,B,3,Maison rustique en montagne avec poêle à bois,53804538,4,,4.8,5,147,403,poêle à bois
+2026-10-12,airbnb,B,3,KAZ DIJOUX 974,16103567,3,,4.82,5,152,541,
+2026-10-12,airbnb,B,3,"Maison Jodette, dans le village",53062176,3,,4.94,5,79,458,
+2026-10-12,airbnb,B,3,"Le Ti'Moré, grande maison centre-ville",47826086,4,,4.91,5,131,783,
+2026-10-12,airbnb,B,3,Meublé Touristique,1059345416692393394,3,,4.97,5,185,902,
+2026-10-12,airbnb,B,3,Villa Vetyver de Cilaos,27999852,3,,4.88,5,161,1061,
+2026-10-12,airbnb,C,5,Maison individuelle à 5 min à pied du lagon,37212889,3,,4.84,5,106,1276,
+2026-10-12,airbnb,C,5,La Terrasse de Saint-Gilles,1276000505421626275,3,,4.96,5,23,1016,
+2026-10-12,airbnb,C,5,Azur de Jade,948381963251881390,3,,5.0,5,19,1009,
+2026-10-12,airbnb,C,5,"La Case Ombeline, villa 5* à La Saline-les-Bains",29565102,3,,4.89,5,102,1422,
+2026-10-12,airbnb,C,5,"Hameau des sables, villa Pétrel",1009216768855136674,3,,4.93,5,57,1539,
+2026-10-12,airbnb,C,5,"Villa Jess, proche plage, 6 pers",1398645249845819240,3,,4.95,5,20,1406,
+2026-10-12,airbnb,D,2,"La Kaz Coco, piscine chauffée, proche aéroport",1539190691897979977,3,,5.0,5,17,525,Beauséjour

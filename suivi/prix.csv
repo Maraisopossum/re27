@@ -2,3 +2,9 @@ date,fare,aller_6pax,retour_6pax,total_6pax,light_adulte_calendrier,note
 2026-10-11,Light+,4041.88,2319.72,6361.6,1022,"ORY-RUN BF700 sam 31/07 19:55 ; RUN-ORY BF703 ven 13/08 08:00 ; 5 adultes (12 ans+) + 1 enfant"
 2026-10-11,Smart,4274.88,2546.72,6821.6,1022,"idem ; 1 bagage 23 kg par personne inclus"
 2026-10-11,Flex,4699.88,3572.72,8272.6,1022,"idem ; modifiable et remboursable avec différence tarifaire"
+2026-10-12,Light+,4041.88,2319.72,6361.6,1022.0,relevé manuel 12/10 ; aller 29/07 passé de 3458 à 3639 pour 6 (Light+)
+2026-10-12,Smart,4274.88,2546.72,6821.6,1022.0,relevé manuel 12/10
+2026-10-12,Flex,4699.88,3572.72,8272.6,1022.0,relevé manuel 12/10
+2026-10-12,Light+,4041.88,2319.72,6361.6,1022.0,
+2026-10-12,Smart,4274.88,2546.72,6821.6,1022.0,
+2026-10-12,Flex,4699.88,3572.72,8272.6,1022.0,
